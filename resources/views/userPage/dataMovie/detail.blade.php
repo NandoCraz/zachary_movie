@@ -17,7 +17,7 @@
                         <a href="/movies?genre={{ $genre->slug }}" class="badge badge-danger">{{ $genre->nama }} </a>
                     @endforeach
                 </h6>
-                <p class="badge badge-warning">Rating : {{ $movie->rating == 0 ? '-' : $movie->rating }}</p>
+                <p class="badge badge-success">Rating : {{ $movie->rating == 0 ? '-' : $movie->rating }}</p>
                 <p class="my-4">{!! $movie->body !!}</p>
                 <a href="/data-movie" class=" btn btn-secondary btn-small text-decoration-none my-4">Kembali</a>
             </div>

@@ -35,7 +35,7 @@ use App\Http\Controllers\MovieRatingController;
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/movies', [MovieController::class, 'allMovie']);
 Route::get('/best-movie', [MovieController::class, 'bestMovie']);
-Route::get('/movie/{movie:slug}', [MovieController::class, 'detailMovie']);
+Route::get('/movie/{movie:slug}', [MovieController::class, 'detailMovie'])->middleware('auth');
 Route::get('/genres', [GenreController::class, 'allGenres']);
 
 Route::get('/login', [LoginController::class, 'index'])->name('login')->middleware('guest');

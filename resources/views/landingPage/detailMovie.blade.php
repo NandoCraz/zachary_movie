@@ -23,7 +23,8 @@
                         <a href="/movies?genre={{ $genre->slug }}" class="badge badge-danger">{{ $genre->nama }} </a>
                     @endforeach
                 </h6>
-                <p class="badge badge-warning">Rating : {{ $detail_movie->rating == 0 ? '-' : $detail_movie->rating }}</p>
+                <p class="badge badge-success">Rating : <i class="fas fa-solid fa-star"></i>
+                    {{ $detail_movie->rating == 0 ? '-' : $detail_movie->rating }}</p>
                 <p>Di Publish Oleh : <a href="/movies?user={{ $detail_movie->user->username }}"
                         class="text-decoration-none fw-bold">{{ $detail_movie->user->name }}</a></p>
                 <p class="my-4">{!! $detail_movie->body !!}</p>
