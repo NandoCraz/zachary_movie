@@ -178,41 +178,47 @@
                 </div>
             </div>
         </section>
-        <div class="container mt-5 mb-3">
-            <div class="container">
-                <div class="row d-flex justify-content-beetwen">
-                    <div class="col-md-6">
-                        <h2>Terakhir Dibuat</h2>
-                    </div>
-                    <div class="col-md-6 text-end">
-                        <a href="/movies" class="btn btn-red text-light" style="background-color: red;">Lihat Semua</a>
+        @if ($movies[0])
+            <div class="container mt-5 mb-3">
+                <div class="container">
+                    <div class="row d-flex justify-content-beetwen">
+                        <div class="col-md-6">
+                            <h2>Terakhir Dibuat</h2>
+                        </div>
+                        <div class="col-md-6 text-end">
+                            <a href="/movies" class="btn btn-red text-light" style="background-color: red;">Lihat Semua</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="card mb-4 text-dark">
-            @if ($movies[0]->image)
-                <img src="{{ asset('storage/' . $movies[0]->image) }}" alt="{{ $movies[0]->judul }}" width="1200" class="img-fluid mb-2">
-            @else
-                <img class="card-img-top" src="https://source.unsplash.com/1200x400?random" alt="hero">
-            @endif
-            <div class="card-body text-center">
-                <h5 class="card-title">{{ $movies[0]->judul }}</h5>
-                <p class="card-text">
-                    <small class="text-muted">
-                        Di Publish Oleh : <a href="/movies?user={{ $movies[0]->user->username }}"
-                            class="text-decoration-none fw-bold">{{ $movies[0]->user->name }}</a>
-                        {{ $movies[0]->created_at->diffForHumans() }}
-                    </small>
-                </p>
-                {{-- <p>
+            <div class="card mb-4 text-dark">
+                @if ($movies[0]->image)
+                    <img src="{{ asset('storage/' . $movies[0]->image) }}" alt="{{ $movies[0]->judul }}" width="1200"
+                        class="img-fluid mb-2">
+                @else
+                    <img class="card-img-top" src="https://source.unsplash.com/1200x400?random" alt="hero">
+                @endif
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ $movies[0]->judul }}</h5>
+                    <p class="card-text">
+                        <small class="text-muted">
+                            Di Publish Oleh : <a href="/movies?user={{ $movies[0]->user->username }}"
+                                class="text-decoration-none fw-bold">{{ $movies[0]->user->name }}</a>
+                            {{ $movies[0]->created_at->diffForHumans() }}
+                        </small>
+                    </p>
+                    {{-- <p>
                     <small class="badge badge-warning">
                         Rating : {{ $movies[0]->rating }}
                     </small>
                 </p> --}}
-                <p>{{ $movies[0]->excerpt }}</p>
-                <a href="/movie/{{ $movies[0]->slug }}" class="btn btn-dark">Baca Selengkapnya</a>
+                    <p>{{ $movies[0]->excerpt }}</p>
+                    <a href="/movie/{{ $movies[0]->slug }}" class="btn btn-dark">Baca Selengkapnya</a>
+                </div>
             </div>
-        </div>
+        @else
+            <h2 class="text-center text-light">Belum Ada Movie Terbaru...</h2>
+        @endif
+
     </div>
 @endsection
